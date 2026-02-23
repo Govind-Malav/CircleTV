@@ -581,9 +581,9 @@ export const selectChatAvatar = (state, chat) => {
   return otherParticipant?.avatar;
 };
 
-// ========================================
+
 // EXPORTS
-// ========================================
+
 export const {
   setActiveChat,
   addMessage,
