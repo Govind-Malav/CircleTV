@@ -419,9 +419,8 @@ const videoSlice = createSlice({
   },
 });
 
-// ========================================
+
 // SELECTORS - Helper functions to get state
-// ========================================
 export const selectAllVideos = (state) => state.video.videos;
 export const selectCurrentVideo = (state) => state.video.currentVideo;
 export const selectRecommendedVideos = (state) => state.video.recommendedVideos;
