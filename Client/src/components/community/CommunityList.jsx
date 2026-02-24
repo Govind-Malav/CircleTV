@@ -12,9 +12,9 @@ const CommunityList = ({ onSelectCommunity, onCreateClick }) => {
   const communities = useSelector(selectAllCommunities);
   const loading = useSelector(state => state.community.loading);
   
-//   useEffect(() => {
-//     dispatch(fetchCommunities());
-//   }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchCommunities());
+  }, [dispatch]);
   
 //   const handleCommunityClick = (community) => {
 //     dispatch(setActiveCommunity(community));
