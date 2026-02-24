@@ -64,19 +64,19 @@ const TextChannel = ({ channel, community }) => {
     // This will be implemented later
   };
   
-//   const scrollToBottom = () => {
-//     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-//   };
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   
-//   const handleSend = () => {
-//     if (input.trim()) {
-//       const message = {
-//         _id: Date.now().toString(),
-//         content: input,
-//         sender: user,
-//         channelId: channel._id,
-//         createdAt: new Date().toISOString()
-//       };
+  const handleSend = () => {
+    if (input.trim()) {
+      const message = {
+        _id: Date.now().toString(),
+        content: input,
+        sender: user,
+        channelId: channel._id,
+        createdAt: new Date().toISOString()
+      };
       
 //       socket.sendChannelMessage(channel._id, message);
 //       setInput('');
