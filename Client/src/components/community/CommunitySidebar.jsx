@@ -32,11 +32,11 @@ const CommunitySidebar = ({ community, onInviteClick, onSettingsClick }) => {
   );
   const activeChannel = useSelector(selectActiveChannel);
   
-//   useEffect(() => {
-//     if (community?._id) {
-//       dispatch(fetchChannels(community._id));
-//       dispatch(fetchMembers(community._id));
-//     }
+  useEffect(() => {
+    if (community?._id) {
+      dispatch(fetchChannels(community._id));
+      dispatch(fetchMembers(community._id));
+    }
 //   }, [dispatch, community?._id]);
   
 //   const getChannelIcon = (type) => {
