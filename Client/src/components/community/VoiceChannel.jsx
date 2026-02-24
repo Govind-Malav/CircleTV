@@ -71,10 +71,10 @@ const VoiceChannel = ({ channel, community }) => {
             {isDeafened && <span className="text-error">🔈</span>}
           </div>
           
-//           {/* Other participants (mock data) */}
-//           <div className="flex items-center gap-3 p-2 hover:bg-gray-800 rounded-lg">
-//             <div className="relative">
-//               <img
+          {/* Other participants (mock data) */}
+          <div className="flex items-center gap-3 p-2 hover:bg-gray-800 rounded-lg">
+            <div className="relative">
+              <img
 //                 src="/default-avatar.png"
 //                 alt="User"
 //                 className="w-10 h-10 rounded-full"
