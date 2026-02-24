@@ -78,14 +78,14 @@ const TextChannel = ({ channel, community }) => {
         createdAt: new Date().toISOString()
       };
       
-//       socket.sendChannelMessage(channel._id, message);
-//       setInput('');
-//     }
-//   };
+      socket.sendChannelMessage(channel._id, message);
+      setInput('');
+    }
+  };
   
-//   const handleTyping = (isTyping) => {
-//     socket.sendTyping(channel._id, isTyping);
-//   };
+  const handleTyping = (isTyping) => {
+    socket.sendTyping(channel._id, isTyping);
+  };
   
 //   return (
 //     <div className="flex-1 flex flex-col bg-gray-900">
