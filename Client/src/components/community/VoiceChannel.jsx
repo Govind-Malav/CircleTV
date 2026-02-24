@@ -52,24 +52,24 @@ const VoiceChannel = ({ channel, community }) => {
           Voice Connected ({participants.length})
         </h3>
         
-//         <div className="space-y-2">
-//           {/* Current user */}
-//           <div className="flex items-center gap-3 p-2 bg-gray-800 rounded-lg">
-//             <div className="relative">
-//               <img
-//                 src={user?.avatar || '/default-avatar.png'}
-//                 alt={user?.name}
-//                 className="w-10 h-10 rounded-full"
-//               />
-//               <span className="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-gray-800" />
-//             </div>
-//             <div className="flex-1">
-//               <p className="font-medium text-white">{user?.name}</p>
-//               <p className="text-xs text-gray-400">You</p>
-//             </div>
-//             {isMuted && <span className="text-error">🔇</span>}
-//             {isDeafened && <span className="text-error">🔈</span>}
-//           </div>
+        <div className="space-y-2">
+          {/* Current user */}
+          <div className="flex items-center gap-3 p-2 bg-gray-800 rounded-lg">
+            <div className="relative">
+              <img
+                src={user?.avatar || '/default-avatar.png'}
+                alt={user?.name}
+                className="w-10 h-10 rounded-full"
+              />
+              <span className="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-gray-800" />
+            </div>
+            <div className="flex-1">
+              <p className="font-medium text-white">{user?.name}</p>
+              <p className="text-xs text-gray-400">You</p>
+            </div>
+            {isMuted && <span className="text-error">🔇</span>}
+            {isDeafened && <span className="text-error">🔈</span>}
+          </div>
           
 //           {/* Other participants (mock data) */}
 //           <div className="flex items-center gap-3 p-2 hover:bg-gray-800 rounded-lg">
