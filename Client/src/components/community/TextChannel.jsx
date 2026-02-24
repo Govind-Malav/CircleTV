@@ -18,19 +18,19 @@ const TextChannel = ({ channel, community }) => {
   const socket = useSocket();
   const user = useSelector(state => state.auth.user);
   
-//   useEffect(() => {
-//     if (channel) {
-//       // Join channel room
-//       socket.joinChannel(channel._id);
+  useEffect(() => {
+    if (channel) {
+      // Join channel room
+      socket.joinChannel(channel._id);
       
-//       // Load messages from API
-//       loadMessages();
+      // Load messages from API
+      loadMessages();
       
-//       return () => {
-//         socket.leaveChannel(channel._id);
-//       };
-//     }
-//   }, [channel, socket]);
+      return () => {
+        socket.leaveChannel(channel._id);
+      };
+    }
+  }, [channel, socket]);
   
 //   useEffect(() => {
 //     // Listen for new messages
