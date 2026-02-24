@@ -10,10 +10,10 @@ const VideoPlayer = ({ video }) => {
   const [seeking, setSeeking] = useState(false);
   const playerRef = useRef(null);
   
-//   const dispatch = useDispatch();
-//   const user = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.auth.user);
   
-//   const handlePlayPause = () => setPlaying(!playing);
+  const handlePlayPause = () => setPlaying(!playing);
   
 //   const handleVolumeChange = (e) => setVolume(parseFloat(e.target.value));
   
