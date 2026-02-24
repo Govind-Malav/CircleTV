@@ -16,10 +16,10 @@ const CommunityList = ({ onSelectCommunity, onCreateClick }) => {
     dispatch(fetchCommunities());
   }, [dispatch]);
   
-//   const handleCommunityClick = (community) => {
-//     dispatch(setActiveCommunity(community));
-//     if (onSelectCommunity) onSelectCommunity(community);
-//   };
+  const handleCommunityClick = (community) => {
+    dispatch(setActiveCommunity(community));
+    if (onSelectCommunity) onSelectCommunity(community);
+  };
   
 //   if (loading && communities.length === 0) {
 //     return (
