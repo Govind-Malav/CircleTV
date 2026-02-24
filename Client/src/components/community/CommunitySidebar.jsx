@@ -21,9 +21,9 @@ import {
 const CommunitySidebar = ({ community, onInviteClick, onSettingsClick }) => {
   const dispatch = useDispatch();
   
-//   const channels = useSelector(state => 
-//     selectChannelsByCommunityId(state, community?._id)
-//   );
+  const channels = useSelector(state => 
+    selectChannelsByCommunityId(state, community?._id)
+  );
 //   const members = useSelector(state => 
 //     selectMembersByCommunityId(state, community?._id)
 //   );
