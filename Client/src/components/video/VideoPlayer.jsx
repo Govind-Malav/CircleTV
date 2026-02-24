@@ -17,11 +17,11 @@ const VideoPlayer = ({ video }) => {
   
   const handleVolumeChange = (e) => setVolume(parseFloat(e.target.value));
   
-//   const handleProgress = (state) => {
-//     if (!seeking) {
-//       setPlayed(state.played);
-//     }
-//   };
+  const handleProgress = (state) => {
+    if (!seeking) {
+      setPlayed(state.played);
+    }
+  };
   
 //   const handleSeekChange = (e) => {
 //     setPlayed(parseFloat(e.target.value));
