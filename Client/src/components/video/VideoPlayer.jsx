@@ -49,75 +49,75 @@ const VideoPlayer = ({ video }) => {
     return `${mm}:${ss}`;
   };
   
-//   return (
-//     <div className="relative bg-black aspect-video">
-//       <ReactPlayer
-//         ref={playerRef}
-//         url={video.videoUrl}
-//         width="100%"
-//         height="100%"
-//         playing={playing}
-//         volume={volume}
-//         onProgress={handleProgress}
-//         config={{
-//           file: {
-//             attributes: {
-//               controlsList: 'nodownload'
-//             }
-//           }
-//         }}
-//       />
+  return (
+    <div className="relative bg-black aspect-video">
+      <ReactPlayer
+        ref={playerRef}
+        url={video.videoUrl}
+        width="100%"
+        height="100%"
+        playing={playing}
+        volume={volume}
+        onProgress={handleProgress}
+        config={{
+          file: {
+            attributes: {
+              controlsList: 'nodownload'
+            }
+          }
+        }}
+      />
       
-//       {/* Custom Controls */}
-//       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-//         {/* Progress bar */}
-//         <div className="flex items-center gap-2 mb-2">
-//           <span className="text-white text-sm">{formatTime(played * video.duration)}</span>
-//           <input
-//             type="range"
-//             min={0}
-//             max={1}
-//             step="any"
-//             value={played}
-//             onMouseDown={handleSeekMouseDown}
-//             onMouseUp={handleSeekMouseUp}
-//             onChange={handleSeekChange}
-//             className="flex-1 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer"
-//           />
-//           <span className="text-white text-sm">{formatTime(video.duration)}</span>
-//         </div>
+      {/* Custom Controls */}
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+        {/* Progress bar */}
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-white text-sm">{formatTime(played * video.duration)}</span>
+          <input
+            type="range"
+            min={0}
+            max={1}
+            step="any"
+            value={played}
+            onMouseDown={handleSeekMouseDown}
+            onMouseUp={handleSeekMouseUp}
+            onChange={handleSeekChange}
+            className="flex-1 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer"
+          />
+          <span className="text-white text-sm">{formatTime(video.duration)}</span>
+        </div>
         
-//         <div className="flex items-center justify-between">
-//           <div className="flex items-center gap-4">
-//             <button onClick={handlePlayPause} className="text-white text-xl">
-//               {playing ? '⏸️' : '▶️'}
-//             </button>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <button onClick={handlePlayPause} className="text-white text-xl">
+              {playing ? '⏸️' : '▶️'}
+            </button>
             
-//             <div className="flex items-center gap-2">
-//               <button onClick={handleLike} className="text-white">
-//                 👍 {video.likes || 0}
-//               </button>
-//               <button onClick={handleDislike} className="text-white">
-//                 👎 {video.dislikes || 0}
-//               </button>
-//             </div>
-//           </div>
+            <div className="flex items-center gap-2">
+              <button onClick={handleLike} className="text-white">
+                👍 {video.likes || 0}
+              </button>
+              <button onClick={handleDislike} className="text-white">
+                👎 {video.dislikes || 0}
+              </button>
+              </div>
+            </div>
           
-//           <div className="flex items-center gap-2">
-//             <input
-//               type="range"
-//               min={0}
-//               max={1}
-//               step="any"
-//               value={volume}
-//               onChange={handleVolumeChange}
-//               className="w-20 h-1 bg-gray-600 rounded-lg"
-//             />
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
+          <div className="flex items-center gap-2">
+            <input
+              type="range"
+              min={0}
+              max={1}
+              step="any"
+              value={volume}
+              onChange={handleVolumeChange}
+              className="w-20 h-1 bg-gray-600 rounded-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default VideoPlayer;
