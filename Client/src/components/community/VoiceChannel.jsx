@@ -38,13 +38,13 @@ const VoiceChannel = ({ channel, community }) => {
     console.log('Disconnecting from voice channel...');
   };
   
-//   return (
-//     <div className="flex-1 flex flex-col bg-gray-900">
-//       {/* Channel Header */}
-//       <div className="h-12 px-4 border-b border-gray-800 flex items-center">
-//         <SpeakerWaveIcon className="w-5 h-5 text-gray-400 mr-2" />
-//         <span className="font-semibold text-white">{channel?.name}</span>
-//       </div>
+  return (
+    <div className="flex-1 flex flex-col bg-gray-900">
+      {/* Channel Header */}
+      <div className="h-12 px-4 border-b border-gray-800 flex items-center">
+        <SpeakerWaveIcon className="w-5 h-5 text-gray-400 mr-2" />
+        <span className="font-semibold text-white">{channel?.name}</span>
+      </div>
       
 //       {/* Participants */}
 //       <div className="flex-1 p-4">
