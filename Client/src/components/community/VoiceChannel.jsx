@@ -30,13 +30,13 @@ const VoiceChannel = ({ channel, community }) => {
   
   const connectToVoice = () => {
     // WebRTC connection logic
-//     console.log('Connecting to voice channel...');
-//   };
+    console.log('Connecting to voice channel...');
+  };
   
-//   const disconnectFromVoice = () => {
-//     // WebRTC disconnection logic
-//     console.log('Disconnecting from voice channel...');
-//   };
+  const disconnectFromVoice = () => {
+    // WebRTC disconnection logic
+    console.log('Disconnecting from voice channel...');
+  };
   
 //   return (
 //     <div className="flex-1 flex flex-col bg-gray-900">
