@@ -23,9 +23,9 @@ const VideoPlayer = ({ video }) => {
     }
   };
   
-//   const handleSeekChange = (e) => {
-//     setPlayed(parseFloat(e.target.value));
-//   };
+  const handleSeekChange = (e) => {
+    setPlayed(parseFloat(e.target.value));
+  };
   
 //   const handleSeekMouseDown = () => setSeeking(true);
   
