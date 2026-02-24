@@ -52,19 +52,19 @@ const CommunitySidebar = ({ community, onInviteClick, onSettingsClick }) => {
     }
 };
   
-//   const groupChannelsByCategory = () => {
-//     const categories = {};
+  const groupChannelsByCategory = () => {
+    const categories = {};
     
-//     channels.forEach(channel => {
-//       const category = channel.category || 'Channels';
-//       if (!categories[category]) {
-//         categories[category] = [];
-//       }
-//       categories[category].push(channel);
-//     });
+    channels.forEach(channel => {
+      const category = channel.category || 'Channels';
+      if (!categories[category]) {
+        categories[category] = [];
+      }
+      categories[category].push(channel);
+    });
     
-//     return categories;
-//   };
+    return categories;
+  };
   
 //   if (!community) return null;
   
