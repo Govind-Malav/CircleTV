@@ -124,19 +124,19 @@ const VoiceChannel = ({ channel, community }) => {
         </div>
       )}
       
-//       {/* Connect Button */}
-//       {!isConnected && (
-//         <div className="p-4">
-//           <button
-//             onClick={() => setIsConnected(true)}
-//             className="btn-primary w-full"
-//           >
-//             Connect to Voice
-//           </button>
-//         </div>
-//       )}
-//     </div>
-//   );
+      {/* Connect Button */}
+     {!isConnected && (
+        <div className="p-4">
+          <button
+            onClick={() => setIsConnected(true)}
+            className="btn-primary w-full"
+          >
+            Connect to Voice
+          </button>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default VoiceChannel;
