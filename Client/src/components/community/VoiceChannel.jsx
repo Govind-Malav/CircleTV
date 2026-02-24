@@ -75,54 +75,54 @@ const VoiceChannel = ({ channel, community }) => {
           <div className="flex items-center gap-3 p-2 hover:bg-gray-800 rounded-lg">
             <div className="relative">
               <img
-//                 src="/default-avatar.png"
-//                 alt="User"
-//                 className="w-10 h-10 rounded-full"
-//               />
-//               <span className="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-gray-800" />
-//             </div>
-//             <div className="flex-1">
-//               <p className="font-medium text-white">John Doe</p>
-//               <div className="flex items-center gap-1">
-//                 <span className="w-1 h-1 bg-green-500 rounded-full" />
-//                 <span className="text-xs text-gray-400">Speaking</span>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
+                src="/default-avatar.png"
+                alt="User"
+                className="w-10 h-10 rounded-full"
+              />
+              <span className="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-gray-800" />
+            </div>
+            <div className="flex-1">
+              <p className="font-medium text-white">John Doe</p>
+              <div className="flex items-center gap-1">
+                <span className="w-1 h-1 bg-green-500 rounded-full" />
+                <span className="text-xs text-gray-400">Speaking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       
-//       {/* Voice Controls */}
-//       {isConnected && (
-//         <div className="p-4 border-t border-gray-800">
-//           <div className="flex items-center justify-center gap-4">
-//             <button
-//               onClick={() => setIsMuted(!isMuted)}
-//               className={`p-3 rounded-full transition ${
-//                 isMuted ? 'bg-error text-white' : 'bg-gray-800 text-gray-400 hover:text-white'
-//               }`}
-//             >
-//               <MicrophoneIcon className="w-5 h-5" />
-//             </button>
+      {/* Voice Controls */}
+       {isConnected && (
+        <div className="p-4 border-t border-gray-800">
+          <div className="flex items-center justify-center gap-4">
+            <button
+              onClick={() => setIsMuted(!isMuted)}
+              className={`p-3 rounded-full transition ${
+                isMuted ? 'bg-error text-white' : 'bg-gray-800 text-gray-400 hover:text-white'
+              }`}
+            >
+              <MicrophoneIcon className="w-5 h-5" />
+            </button>
             
-//             <button
-//               onClick={() => setIsDeafened(!isDeafened)}
-//               className={`p-3 rounded-full transition ${
-//                 isDeafened ? 'bg-error text-white' : 'bg-gray-800 text-gray-400 hover:text-white'
-//               }`}
-//             >
-//               <SpeakerWaveIcon className="w-5 h-5" />
-//             </button>
+            <button
+              onClick={() => setIsDeafened(!isDeafened)}
+              className={`p-3 rounded-full transition ${
+                isDeafened ? 'bg-error text-white' : 'bg-gray-800 text-gray-400 hover:text-white'
+              }`}
+            >
+              <SpeakerWaveIcon className="w-5 h-5" />
+            </button>
             
-//             <button
-//               onClick={() => setIsConnected(false)}
-//               className="p-3 rounded-full bg-error text-white hover:bg-red-600 transition"
-//             >
-//               <PhoneXMarkIcon className="w-5 h-5" />
-//             </button>
-//           </div>
-//         </div>
-//       )}
+            <button
+              onClick={() => setIsConnected(false)}
+              className="p-3 rounded-full bg-error text-white hover:bg-red-600 transition"
+            >
+              <PhoneXMarkIcon className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
       
 //       {/* Connect Button */}
 //       {!isConnected && (
