@@ -21,15 +21,15 @@ const CommunityList = ({ onSelectCommunity, onCreateClick }) => {
     if (onSelectCommunity) onSelectCommunity(community);
   };
   
-//   if (loading && communities.length === 0) {
-//     return (
-//       <div className="w-20 h-screen bg-gray-900 flex flex-col items-center py-4">
-//         {[...Array(5)].map((_, i) => (
-//           <div key={i} className="w-12 h-12 bg-gray-800 rounded-2xl mb-2 animate-pulse" />
-//         ))}
-//       </div>
-//     );
-//   }
+  if (loading && communities.length === 0) {
+    return (
+      <div className="w-20 h-screen bg-gray-900 flex flex-col items-center py-4">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="w-12 h-12 bg-gray-800 rounded-2xl mb-2 animate-pulse" />
+        ))}
+      </div>
+    );
+  }
   
 //   return (
 //     <div className="w-20 h-screen bg-gray-900 flex flex-col items-center py-4 overflow-y-auto custom-scrollbar">
