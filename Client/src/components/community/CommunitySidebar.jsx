@@ -37,20 +37,20 @@ const CommunitySidebar = ({ community, onInviteClick, onSettingsClick }) => {
       dispatch(fetchChannels(community._id));
       dispatch(fetchMembers(community._id));
     }
-//   }, [dispatch, community?._id]);
+  }, [dispatch, community?._id]);
   
-//   const getChannelIcon = (type) => {
-//     switch (type) {
-//       case 'text':
-//         return <HashtagIcon className="w-5 h-5" />;
-//       case 'voice':
-//         return <SpeakerWaveIcon className="w-5 h-5" />;
-//       case 'announcement':
-//         return <MegaphoneIcon className="w-5 h-5" />;
-//       default:
-//         return <HashtagIcon className="w-5 h-5" />;
-//     }
-//   };
+  const getChannelIcon = (type) => {
+    switch (type) {
+      case 'text':
+        return <HashtagIcon className="w-5 h-5" />;
+      case 'voice':
+        return <SpeakerWaveIcon className="w-5 h-5" />;
+      case 'announcement':
+        return <MegaphoneIcon className="w-5 h-5" />;
+      default:
+        return <HashtagIcon className="w-5 h-5" />;
+    }
+};
   
 //   const groupChannelsByCategory = () => {
 //     const categories = {};
