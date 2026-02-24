@@ -46,11 +46,11 @@ const VoiceChannel = ({ channel, community }) => {
         <span className="font-semibold text-white">{channel?.name}</span>
       </div>
       
-//       {/* Participants */}
-//       <div className="flex-1 p-4">
-//         <h3 className="text-xs font-semibold text-gray-400 uppercase mb-3">
-//           Voice Connected ({participants.length})
-//         </h3>
+      {/* Participants */}
+      <div className="flex-1 p-4">
+        <h3 className="text-xs font-semibold text-gray-400 uppercase mb-3">
+          Voice Connected ({participants.length})
+        </h3>
         
 //         <div className="space-y-2">
 //           {/* Current user */}
