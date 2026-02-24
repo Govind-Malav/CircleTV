@@ -15,7 +15,7 @@ const VideoPlayer = ({ video }) => {
   
   const handlePlayPause = () => setPlaying(!playing);
   
-//   const handleVolumeChange = (e) => setVolume(parseFloat(e.target.value));
+  const handleVolumeChange = (e) => setVolume(parseFloat(e.target.value));
   
 //   const handleProgress = (state) => {
 //     if (!seeking) {
