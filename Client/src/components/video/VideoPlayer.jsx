@@ -27,12 +27,12 @@ const VideoPlayer = ({ video }) => {
     setPlayed(parseFloat(e.target.value));
   };
   
-//   const handleSeekMouseDown = () => setSeeking(true);
+  const handleSeekMouseDown = () => setSeeking(true);
   
-//   const handleSeekMouseUp = (e) => {
-//     setSeeking(false);
-//     playerRef.current.seekTo(parseFloat(e.target.value));
-//   };
+  const handleSeekMouseUp = (e) => {
+    setSeeking(false);
+    playerRef.current.seekTo(parseFloat(e.target.value));
+  };
   
 //   const handleLike = () => dispatch(likeVideo(video._id));
 //   const handleDislike = () => dispatch(dislikeVideo(video._id));
