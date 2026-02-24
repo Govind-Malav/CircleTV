@@ -12,13 +12,13 @@ const VideoGrid = ({ videos, loading, error }) => {
     );
   }
   
-//   if (error) {
-//     return (
-//       <div className="text-center py-10">
-//         <p className="text-error">{error}</p>
-//       </div>
-//     );
-//   }
+  if (error) {
+    return (
+      <div className="text-center py-10">
+        <p className="text-error">{error}</p>
+      </div>
+    );
+  }
   
 //   if (videos.length === 0) {
 //     return (
