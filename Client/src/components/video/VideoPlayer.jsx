@@ -37,17 +37,17 @@ const VideoPlayer = ({ video }) => {
   const handleLike = () => dispatch(likeVideo(video._id));
   const handleDislike = () => dispatch(dislikeVideo(video._id));
   
-//   const formatTime = (seconds) => {
-//     const date = new Date(seconds * 1000);
-//     const hh = date.getUTCHours();
-//     const mm = date.getUTCMinutes();
-//     const ss = date.getUTCSeconds().toString().padStart(2, '0');
+  const formatTime = (seconds) => {
+    const date = new Date(seconds * 1000);
+    const hh = date.getUTCHours();
+    const mm = date.getUTCMinutes();
+    const ss = date.getUTCSeconds().toString().padStart(2, '0');
     
-//     if (hh) {
-//       return `${hh}:${mm.toString().padStart(2, '0')}:${ss}`;
-//     }
-//     return `${mm}:${ss}`;
-//   };
+    if (hh) {
+      return `${hh}:${mm.toString().padStart(2, '0')}:${ss}`;
+    }
+    return `${mm}:${ss}`;
+  };
   
 //   return (
 //     <div className="relative bg-black aspect-video">
