@@ -14,22 +14,22 @@ const VoiceChannel = ({ channel, community }) => {
   
   const user = useSelector(state => state.auth.user);
   
-//   useEffect(() => {
-//     if (isConnected) {
-//       // Connect to voice channel
-//       // This will use WebRTC (to be implemented later)
-//       connectToVoice();
-//     }
+  useEffect(() => {
+    if (isConnected) {
+      // Connect to voice channel
+      // This will use WebRTC (to be implemented later)
+      connectToVoice();
+    }
     
-//     return () => {
-//       if (isConnected) {
-//         disconnectFromVoice();
-//       }
-//     };
-//   }, [isConnected]);
+    return () => {
+      if (isConnected) {
+        disconnectFromVoice();
+      }
+    };
+  }, [isConnected]);
   
-//   const connectToVoice = () => {
-//     // WebRTC connection logic
+  const connectToVoice = () => {
+    // WebRTC connection logic
 //     console.log('Connecting to voice channel...');
 //   };
   
