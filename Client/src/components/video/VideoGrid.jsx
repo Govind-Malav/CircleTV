@@ -20,13 +20,13 @@ const VideoGrid = ({ videos, loading, error }) => {
     );
   }
   
-//   if (videos.length === 0) {
-//     return (
-//       <div className="text-center py-10">
-//         <p className="text-gray-400">No videos found</p>
-//       </div>
-//     );
-//   }
+  if (videos.length === 0) {
+    return (
+      <div className="text-center py-10">
+        <p className="text-gray-400">No videos found</p>
+      </div>
+    );
+  }
   
 //   return (
 //     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
