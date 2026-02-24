@@ -34,8 +34,8 @@ const VideoPlayer = ({ video }) => {
     playerRef.current.seekTo(parseFloat(e.target.value));
   };
   
-//   const handleLike = () => dispatch(likeVideo(video._id));
-//   const handleDislike = () => dispatch(dislikeVideo(video._id));
+  const handleLike = () => dispatch(likeVideo(video._id));
+  const handleDislike = () => dispatch(dislikeVideo(video._id));
   
 //   const formatTime = (seconds) => {
 //     const date = new Date(seconds * 1000);
