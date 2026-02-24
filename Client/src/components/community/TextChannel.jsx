@@ -49,20 +49,20 @@ const TextChannel = ({ channel, community }) => {
       });
     });
     
-//     return () => {
-//       socket.off('channel-message');
-//       socket.off('channel-typing');
-//     };
-//   }, [socket]);
+    return () => {
+      socket.off('channel-message');
+      socket.off('channel-typing');
+    };
+  }, [socket]);
   
-//   useEffect(() => {
-//     scrollToBottom();
-//   }, [messages]);
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
   
-//   const loadMessages = async () => {
-//     // API call to load message history
-//     // This will be implemented later
-//   };
+  const loadMessages = async () => {
+    // API call to load message history
+    // This will be implemented later
+  };
   
 //   const scrollToBottom = () => {
 //     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
