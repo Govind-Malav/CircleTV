@@ -45,11 +45,11 @@ const VideoCard = ({ video }) => {
               {video.channel?.name}
             </p>
             
-            {/* <div className="flex items-center gap-1 text-xs text-gray-400 mt-1">
+            <div className="flex items-center gap-1 text-xs text-gray-400 mt-1">
               <span>{formatViews(video.views)} views</span>
               <span>•</span>
               <span>{formatDistanceToNow(new Date(video.createdAt))} ago</span>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
