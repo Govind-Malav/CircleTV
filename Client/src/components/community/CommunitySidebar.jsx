@@ -27,10 +27,10 @@ const CommunitySidebar = ({ community, onInviteClick, onSettingsClick }) => {
   const members = useSelector(state => 
     selectMembersByCommunityId(state, community?._id)
   );
-//   const onlineCount = useSelector(state => 
-//     selectOnlineMembersCount(state, community?._id)
-//   );
-//   const activeChannel = useSelector(selectActiveChannel);
+  const onlineCount = useSelector(state => 
+    selectOnlineMembersCount(state, community?._id)
+  );
+  const activeChannel = useSelector(selectActiveChannel);
   
 //   useEffect(() => {
 //     if (community?._id) {
