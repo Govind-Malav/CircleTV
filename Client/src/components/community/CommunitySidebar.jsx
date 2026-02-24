@@ -24,9 +24,9 @@ const CommunitySidebar = ({ community, onInviteClick, onSettingsClick }) => {
   const channels = useSelector(state => 
     selectChannelsByCommunityId(state, community?._id)
   );
-//   const members = useSelector(state => 
-//     selectMembersByCommunityId(state, community?._id)
-//   );
+  const members = useSelector(state => 
+    selectMembersByCommunityId(state, community?._id)
+  );
 //   const onlineCount = useSelector(state => 
 //     selectOnlineMembersCount(state, community?._id)
 //   );
