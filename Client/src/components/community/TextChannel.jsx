@@ -32,22 +32,22 @@ const TextChannel = ({ channel, community }) => {
     }
   }, [channel, socket]);
   
-//   useEffect(() => {
-//     // Listen for new messages
-//     socket.on('channel-message', (message) => {
-//       setMessages(prev => [...prev, message]);
-//     });
+  useEffect(() => {
+    // Listen for new messages
+    socket.on('channel-message', (message) => {
+      setMessages(prev => [...prev, message]);
+    });
     
-//     // Listen for typing indicators
-//     socket.on('channel-typing', ({ userId, isTyping }) => {
-//       setTypingUsers(prev => {
-//         if (isTyping) {
-//           return prev.includes(userId) ? prev : [...prev, userId];
-//         } else {
-//           return prev.filter(id => id !== userId);
-//         }
-//       });
-//     });
+    // Listen for typing indicators
+    socket.on('channel-typing', ({ userId, isTyping }) => {
+      setTypingUsers(prev => {
+        if (isTyping) {
+          return prev.includes(userId) ? prev : [...prev, userId];
+        } else {
+          return prev.filter(id => id !== userId);
+        }
+      });
+    });
     
 //     return () => {
 //       socket.off('channel-message');
