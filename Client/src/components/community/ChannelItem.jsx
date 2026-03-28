@@ -17,18 +17,18 @@ const ChannelItem = ({ channel, communityId, onContextMenu }) => {
   const isAdmin = useSelector(state => selectIsAdmin(state, communityId, currentUser?._id));
   const isModerator = useSelector(state => selectIsModerator(state, communityId, currentUser?._id));
   
-  // const getChannelIcon = () => {
-  //   switch (channel.type) {
-  //     case 'text':
-  //       return <HashtagIcon className="w-5 h-5" />;
-  //     case 'voice':
-  //       return <SpeakerWaveIcon className="w-5 h-5" />;
-  //     case 'announcement':
-  //       return <MegaphoneIcon className="w-5 h-5" />;
-  //     default:
-  //       return <HashtagIcon className="w-5 h-5" />;
-  //   }
-  // };
+  const getChannelIcon = () => {
+    switch (channel.type) {
+      case 'text':
+        return <HashtagIcon className="w-5 h-5" />;
+      case 'voice':
+        return <SpeakerWaveIcon className="w-5 h-5" />;
+      case 'announcement':
+        return <MegaphoneIcon className="w-5 h-5" />;
+      default:
+        return <HashtagIcon className="w-5 h-5" />;
+    }
+  };
   
   const handleClick = () => {
     dispatch(setActiveChannel(channel));
