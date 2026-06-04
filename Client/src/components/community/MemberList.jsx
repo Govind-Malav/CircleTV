@@ -1,133 +1,98 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { 
-  UserGroupIcon,
-  ChevronDownIcon,
-  ChevronUpIcon 
-} from '@heroicons/react/24/outline';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { communityAPI } from '../../services/api';
+import { COMMUNITY_ROLES } from '../../utils/constants';
 
-const MemberList = ({ members = [] }) => {
-  const [showOffline, setShowOffline] = useState(false);
-  const currentUser = useSelector(state => state.auth.user);
-  
-  const onlineMembers = members.filter(m => m.online);
-  const offlineMembers = members.filter(m => !m.online);
-  
-  const getRoleIcon = (role) => {
-    switch (role) {
-      case 'admin':
-        return '👑';
-      case 'moderator':
-        return '🛡️';
-      default:
-        return null;
-    }
-  };
-  
-  return (
-    <div className="w-60 h-screen bg-gray-800 flex flex-col">
-      <div className="h-12 px-4 flex items-center border-b border-gray-700">
-        <h2 className="font-bold text-white">Members</h2>
-      </div>
-      
-      <div className="flex-1 overflow-y-auto custom-scrollbar p-2">
-        {/* Online Members */}
-        <div className="mb-4">
-          <div className="flex items-center justify-between px-2 mb-2">
-            <span className="text-xs font-semibold text-gray-400 uppercase">
-              Online — {onlineMembers.length}
-            </span>
-          </div>
-          
-          {onlineMembers.map(member => (
-            <div
-              key={member.userId}
-              className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-gray-700 cursor-pointer group"
-            >
-              <div className="relative">
-                <img
-                  src={member.avatar || '/default-avatar.png'}
-                  alt={member.name}
-                  className="w-8 h-8 rounded-full"
-                />
-                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-secondary rounded-full border-2 border-gray-800" />
-              </div>
-              
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1">
-                  <span className="text-sm text-white font-medium truncate">
-                    {member.name}
-                  </span>
-                  {getRoleIcon(member.role) && (
-                    <span className="text-xs">{getRoleIcon(member.role)}</span>
-                  )}
-                </div>
-                {member.activity && (
-                  <p className="text-xs text-gray-400 truncate">
-                    {member.activity}
-                  </p>
-                )}
-              </div>
-              
-              {member.userId === currentUser?._id && (
-                <span className="text-xs text-gray-400">(you)</span>
-              )}
-            </div>
-          ))}
+const roleColors = {
+  owner: 'text-yellow-400',
+  admin: 'text-red-400',
+  moderator: 'text-violet-400',
+  member: 'text-gray-300',
+};
+
+const roleBadgeColors = {
+  owner: 'bg-yellow-400/10 text-yellow-400',
+  admin: 'bg-red-400/10 text-red-400',
+  moderator: 'bg-violet-400/10 text-violet-400',
+  member: 'hidden',
+};
+
+const MemberList = () => {
+  const { communityId } = useParams();
+  const [members, setMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!communityId) return;
+    const load = async () => {
+      try {
+        const response = await communityAPI.getMembers(communityId);
+        setMembers(response.data?.data || []);
+      } catch { } finally { setLoading(false); }
+    };
+    load();
+  }, [communityId]);
+
+  if (loading) return (
+    <div className="p-4 space-y-3">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <div key={i} className="flex items-center gap-2 animate-pulse">
+          <div className="w-8 h-8 rounded-full bg-gray-800" />
+          <div className="h-3 bg-gray-800 rounded w-24" />
         </div>
-        
-        {/* Offline Members */}
-        {showOffline && offlineMembers.length > 0 && (
-          <div>
-            <div className="flex items-center justify-between px-2 mb-2">
-              <span className="text-xs font-semibold text-gray-400 uppercase">
-                Offline — {offlineMembers.length}
-              </span>
-            </div>
-            
-            {offlineMembers.map(member => (
+      ))}
+    </div>
+  );
+
+  // Group by role
+  const grouped = members.reduce((acc, member) => {
+    const role = member.role || 'member';
+    if (!acc[role]) acc[role] = [];
+    acc[role].push(member);
+    return acc;
+  }, {});
+
+  const roleOrder = ['owner', 'admin', 'moderator', 'member'];
+
+  return (
+    <div className="py-3 px-2">
+      {roleOrder.map(role => {
+        const group = grouped[role];
+        if (!group?.length) return null;
+        return (
+          <div key={role} className="mb-4">
+            <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider px-2 mb-1">
+              {role}s — {group.length}
+            </p>
+            {group.map(member => (
               <div
-                key={member.userId}
-                className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-gray-700 cursor-pointer opacity-50"
+                key={member._id || member.user?._id}
+                className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer group"
               >
-                <div className="relative">
+                <div className="relative shrink-0">
                   <img
-                    src={member.avatar || '/default-avatar.png'}
-                    alt={member.name}
-                    className="w-8 h-8 rounded-full grayscale"
+                    src={member.user?.avatar || member.avatar || `https://ui-avatars.com/api/?name=${member.user?.username || member.username}&background=7C3AED&color=fff&size=28`}
+                    alt=""
+                    className="w-8 h-8 rounded-full"
                   />
+                  {/* Online indicator */}
+                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-900" />
                 </div>
-                
                 <div className="flex-1 min-w-0">
-                  <span className="text-sm text-gray-400 truncate">
-                    {member.name}
-                  </span>
+                  <p className={`text-sm font-medium truncate ${roleColors[role] || 'text-gray-300'}`}>
+                    {member.user?.username || member.username}
+                  </p>
                 </div>
+                {role !== 'member' && (
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold ${roleBadgeColors[role]}`}>
+                    {role}
+                  </span>
+                )}
               </div>
             ))}
           </div>
-        )}
-        
-        {/* Toggle Offline Button */}
-        {offlineMembers.length > 0 && (
-          <button
-            onClick={() => setShowOffline(!showOffline)}
-            className="flex items-center gap-1 text-xs text-gray-400 hover:text-white mt-2 px-2"
-          >
-            {showOffline ? (
-              <>
-                <ChevronUpIcon className="w-3 h-3" />
-                Hide offline
-              </>
-            ) : (
-              <>
-                <ChevronDownIcon className="w-3 h-3" />
-                Show {offlineMembers.length} offline
-              </>
-            )}
-          </button>
-        )}
-      </div>
+        );
+      })}
     </div>
   );
 };

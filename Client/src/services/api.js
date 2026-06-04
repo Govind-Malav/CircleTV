@@ -117,6 +117,7 @@ export const videoAPI = {
   removeFromHistory: (id) => API.delete(`/videos/history/${id}`),
   searchVideos: (q, params) => API.get('/videos/search', { params: { q, ...params } }),
   recordView: (id) => API.post(`/videos/${id}/view`),
+  getShorts: (params) => API.get('/videos', { params: { isShort: true, ...params } }),
   addComment: (videoId, data) => API.post('/comments', { videoId, ...data }),
   getComments: (videoId, params) => API.get('/comments', { params: { videoId, ...params } }),
 };
@@ -134,8 +135,11 @@ export const commentAPI = {
 // ─── CHAT API ─────────────────────────────────────────────────────────────────
 export const chatAPI = {
   getChats: () => API.get('/chats'),
+  getConversations: () => API.get('/chats'),                          // alias
   createChat: (data) => API.post('/chats', data),
   getChat: (id) => API.get(`/chats/${id}`),
+  getMessages: (chatId, params) => API.get(`/chats/${chatId}/messages`, { params }),
+  sendMessage: (chatId, data) => API.post(`/chats/${chatId}/messages`, data),
   deleteChat: (id) => API.delete(`/chats/${id}`),
   updateChat: (id, data) => API.put(`/chats/${id}`, data),
   addMember: (chatId, userId) => API.post(`/chats/${chatId}/members`, { userId }),
@@ -153,6 +157,7 @@ export const messageAPI = {
 // ─── COMMUNITY API ────────────────────────────────────────────────────────────
 export const communityAPI = {
   getCommunities: (params) => API.get('/communities', { params }),
+  getUserCommunities: () => API.get('/communities/my'),              // current user's communities
   createCommunity: (formData) => API.post('/communities', formData, { headers: { 'Content-Type': 'multipart/form-data' } }),
   getCommunity: (id) => API.get(`/communities/${id}`),
   updateCommunity: (id, data) => API.put(`/communities/${id}`, data),
@@ -163,6 +168,7 @@ export const communityAPI = {
   joinByInvite: (code) => API.post(`/communities/join/${code}`),
   // Channel routes
   getChannels: (communityId) => API.get(`/communities/${communityId}/channels`),
+  getChannel: (communityId, channelId) => API.get(`/communities/${communityId}/channels/${channelId}`),
   createChannel: (communityId, data) => API.post(`/communities/${communityId}/channels`, data),
   updateChannel: (communityId, channelId, data) => API.put(`/communities/${communityId}/channels/${channelId}`, data),
   deleteChannel: (communityId, channelId) => API.delete(`/communities/${communityId}/channels/${channelId}`),
