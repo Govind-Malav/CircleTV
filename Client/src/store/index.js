@@ -3,6 +3,7 @@ import authReducer from './authSlice';
 import videoReducer from './videoSlice';
 import chatReducer from './chatSlice';
 import communityReducer from './communitySlice';
+import watchPartyReducer from './watchPartySlice';
 import uiReducer from './uiSlice';
 
 // This is the MAIN STORE - the central brain of your application
@@ -13,6 +14,7 @@ export const store = configureStore({
         video: videoReducer,       // Handles videos, uploads, watching
         chat: chatReducer,         // Handles Instagram-style messaging
         community: communityReducer, // Handles Discord-like communities
+        watchParty: watchPartyReducer, // Handles watch party sync, queue, reactions
         ui: uiReducer,             // Handles UI state (sidebar, modals, theme)
     },
 
